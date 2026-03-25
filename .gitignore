@@ -1,0 +1,18 @@
+# Dependências
+node_modules/
+
+# Build
+dist/
+
+# Variáveis de ambiente — NUNCA enviar para o GitHub
+.env
+.env.local
+.env.*.local
+
+# Editor
+.vscode/
+.idea/
+
+# Sistema
+.DS_Store
+Thumbs.db

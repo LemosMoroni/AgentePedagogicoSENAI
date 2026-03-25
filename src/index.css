@@ -1,0 +1,138 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Global ─────────────────────────────────────────────── */
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+
+  body {
+    @apply font-sans bg-slate-100 text-gray-900 antialiased;
+    min-height: 100vh;
+  }
+
+  ::-webkit-scrollbar { width: 5px; height: 5px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { @apply bg-gray-300 rounded-full; }
+  ::-webkit-scrollbar-thumb:hover { @apply bg-gray-400; }
+
+  input, select, textarea, button { font-family: inherit; }
+}
+
+/* ── Componentes reutilizáveis ───────────────────────────── */
+@layer components {
+
+  /* Sidebar */
+  .sidebar {
+    @apply fixed top-0 left-0 h-screen w-64 flex flex-col z-50
+           bg-senai-blue text-white shadow-2xl
+           transition-transform duration-300;
+  }
+
+  /* Topbar */
+  .topbar {
+    @apply sticky top-0 z-40 bg-white border-b border-gray-200
+           px-6 py-3 flex items-center justify-between
+           shadow-sm gap-3;
+  }
+
+  /* Card */
+  .card {
+    @apply bg-white rounded-2xl border border-gray-200 p-6
+           shadow-sm animate-slide-up;
+  }
+
+  /* Input base */
+  .field-input {
+    @apply w-full rounded-lg border border-gray-200 bg-white
+           px-3 py-2 text-sm text-gray-900 outline-none
+           transition-all duration-150
+           focus:border-senai-blue focus:ring-2 focus:ring-senai-blue/10
+           placeholder:text-gray-400;
+  }
+
+  /* Tag pill */
+  .tag {
+    @apply inline-flex items-center px-3 py-1.5 rounded-full
+           text-sm border border-gray-200 text-gray-500 bg-white
+           cursor-pointer select-none
+           transition-all duration-150 hover:border-gray-300 hover:bg-gray-50;
+  }
+  .tag-blue  { @apply bg-senai-blue text-white border-senai-blue; }
+  .tag-info  { @apply bg-senai-blue-lt text-senai-blue border-senai-blue/25; }
+  .tag-orange{ @apply bg-senai-orange-lt text-senai-orange border-senai-orange/30; }
+
+  /* Bloom card */
+  .bloom-card {
+    @apply border border-gray-200 rounded-xl p-3 cursor-pointer
+           bg-white transition-all duration-150
+           hover:border-senai-blue-mid hover:-translate-y-0.5 hover:shadow-md;
+  }
+  .bloom-card-active {
+    @apply border-2 border-senai-blue bg-senai-blue-lt shadow-md -translate-y-0.5;
+  }
+
+  /* Buttons */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 px-5 py-2.5
+           rounded-xl text-sm font-semibold
+           transition-all duration-150 active:scale-95 disabled:opacity-50;
+  }
+  .btn-primary {
+    @apply btn bg-senai-blue text-white
+           hover:bg-senai-blue-mid hover:shadow-lg hover:shadow-senai-blue/25;
+  }
+  .btn-orange {
+    @apply btn bg-senai-orange text-white
+           hover:opacity-90 hover:shadow-lg hover:shadow-senai-orange/30;
+  }
+  .btn-ghost {
+    @apply btn bg-white text-gray-700 border border-gray-200
+           hover:bg-gray-50;
+  }
+  .btn-danger {
+    @apply btn bg-red-50 text-red-600 border border-red-100
+           hover:bg-red-100 text-xs px-3 py-1.5;
+  }
+
+  /* Step pill */
+  .step-pill {
+    @apply flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium;
+  }
+
+  /* Nav item */
+  .nav-item {
+    @apply flex items-center gap-3 w-full px-4 py-2.5 text-sm
+           text-white/60 hover:text-white hover:bg-white/10
+           border-l-2 border-transparent
+           transition-all duration-150 rounded-r-lg;
+  }
+  .nav-item-active {
+    @apply text-white bg-white/15 border-l-2 border-senai-orange font-medium;
+  }
+
+  /* Result section header */
+  .result-section {
+    @apply text-[10px] font-black uppercase tracking-widest text-senai-blue
+           pt-5 pb-1.5 border-b-2 border-senai-orange mb-3 first:pt-0;
+  }
+
+  /* Info box */
+  .info-box {
+    @apply bg-senai-blue-lt border border-senai-blue/15
+           rounded-xl p-3 text-sm text-senai-blue-mid leading-relaxed mt-2;
+  }
+
+  /* Stats card */
+  .stat-card {
+    @apply bg-white rounded-2xl border border-gray-200 p-5
+           text-center shadow-sm;
+  }
+}
+
+/* ── Utilities extras ────────────────────────────────────── */
+@layer utilities {
+  .text-balance { text-wrap: balance; }
+  .scrollbar-hide { scrollbar-width: none; }
+  .scrollbar-hide::-webkit-scrollbar { display: none; }
+}
